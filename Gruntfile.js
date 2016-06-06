@@ -85,8 +85,10 @@ module.exports = function(grunt) {
         shell.exec("codesign --verbose --deep --force --sign 'Mac Developer: Herman Wong (M6QFED29S9)' build/PhoneGap-darwin-x64/PhoneGap.app");
         shell.exec("codesign --verbose --verify build/PhoneGap-darwin-x64/PhoneGap.app");
         shell.exec("codesign -vv -d build/PhoneGap-darwin-x64/PhoneGap.app");
-        shell.exec("codesign --verbose --force --sign 'Mac Developer: Herman Wong (M6QFED29S9)' build/PhoneGap-darwin-x64/PhoneGap.app/Contents/MacOS/Electron");
-        shell.exec("codesign --verbose --verify build/PhoneGap-darwin-x64/PhoneGap.app/Contents/MacOS/Electron");
+        shell.exec("codesign --verbose --force --sign 'Mac Developer: Herman Wong (M6QFED29S9)' build/PhoneGap-darwin-x64/PhoneGap.app/Contents/MacOS/PhoneGap");
+        shell.exec("codesign --verbose --verify build/PhoneGap-darwin-x64/PhoneGap.app/Contents/MacOS/PhoneGap");
+        shell.exec("spctl -a -vvvv build/PhoneGap-darwin-x64/PhoneGap.app")
+
     });
 
     // Clean build directories
